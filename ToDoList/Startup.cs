@@ -8,6 +8,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
+using Pomelo.EntityFrameworkCore.MySql;
+using ToDoList.Models;
 
 namespace ToDoList
 {
@@ -18,7 +21,7 @@ namespace ToDoList
 		{
 			var builder = new ConfigurationBuilder()
 			  .SetBasePath(env.ContentRootPath)
-              .AddJsonFile(appsettings.json); //this line replaces .AddEnvironmentVariables();
+              .AddJsonFile("appsettings.json"); //this line replaces .AddEnvironmentVariables();
 			Configuration = builder.Build();
 		}
 
