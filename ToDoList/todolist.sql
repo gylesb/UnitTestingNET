@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Jan 04, 2018 at 08:12 PM
+-- Generation Time: Jan 04, 2018 at 11:47 PM
 -- Server version: 5.6.35
 -- PHP Version: 7.0.15
 
@@ -25,6 +25,18 @@ USE `todolist`;
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `Categories`
+--
+
+DROP TABLE IF EXISTS `Categories`;
+CREATE TABLE `Categories` (
+  `CategoryId` int(11) NOT NULL,
+  `Name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `Items`
 --
 
@@ -35,11 +47,6 @@ CREATE TABLE `Items` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Truncate table before insert `Items`
---
-
-TRUNCATE TABLE `Items`;
---
 -- Dumping data for table `Items`
 --
 
@@ -47,11 +54,18 @@ INSERT INTO `Items` (`id`, `Description`) VALUES
 (2, 'Learn .NET'),
 (3, 'Conquer the internet'),
 (4, 'Make to do list'),
-(5, 'Walk the dog');
+(5, 'Walk the dog'),
+(6, 'Play video games');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `Categories`
+--
+ALTER TABLE `Categories`
+  ADD PRIMARY KEY (`CategoryId`);
 
 --
 -- Indexes for table `Items`
@@ -64,10 +78,15 @@ ALTER TABLE `Items`
 --
 
 --
+-- AUTO_INCREMENT for table `Categories`
+--
+ALTER TABLE `Categories`
+  MODIFY `CategoryId` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `Items`
 --
 ALTER TABLE `Items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
