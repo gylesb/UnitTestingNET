@@ -31,5 +31,34 @@ namespace ToDoList.Controllers
 			Item thisItem = db.Items.FirstOrDefault(items => items.id == id);
 			return View(thisItem);
 		}
+
+        public IActionResult Edit (int id)
+        {
+            var thisItem = db.Items.FirstOrDefault(items => items.id == id);
+            return View(thisItem);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Item Item)
+        {
+            db.Entry(Item).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Delete(int id)
+        {
+            var thisItem = db.Items.FirstOrDefault(items => items.id == id);
+            return View(thisItem);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            var thisItem = db.Items.FirstOrDefault(items => items.id == id);
+            db.Items.Remove(thisItem);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

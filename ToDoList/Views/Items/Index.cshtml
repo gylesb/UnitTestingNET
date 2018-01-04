@@ -16,7 +16,7 @@
 		<ul>
 			@foreach(var listItem in Model)
 			{
-			    <li>@Html.DisplayFor(modelItem => listItem.Description)</li>
+			    <li>@Html.DisplayFor(modelItem => listItem.Description) | @Html.ActionLink("Details", "Details", new { id = listItem.id }) | @Html.ActionLink("Edit", "Edit", new { id = listItem.id }) | @Html.ActionLink("Delete", "Delete", new { id = listItem.id })</li>
 			}
 		</ul>
 		 <p>@Html.ActionLink("Add new item", "Create")</p>
