@@ -1,36 +1,36 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
+﻿Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace ToDoList.Models.Repositories
 {
-    public interface EFItemRepository : IItemRepository
+    public class EFItemRepository
     {
         ToDoListContext db = new ToDoListContext();
+    }
 
-        public IQueryable<Item> Items
-        { get { return db.Items } }
+    public IQueryable<Item> Items
+    { get { return Db.Items; } }
 
-        public Item Save(Item item)
-        {
-            db.Items.Add(item);
-            db.SaveChanges();
-            return item;
-        }
+    public Item Save(Item item)
+    {
+        db.Items.Add(item);
+        db.SaveChanges();
+        return item;
+    }
 
-        public Item Edit(Item item)
-        {
-            db.Entry(item).State = EntityState.Modified;
-            db.SaveChanges();
-            return item;
-        }
+    public Item Edit(Item item)
+    {
+        db.Entry(item).State = EntityState.Modified;
+        db.SaveChanges();
+        return item;
+    }
 
-        public void Remove(Item item)
-        {
-            db.Items.Remove(item);
-            db.SaveChanges();
-        }
+    public void Remove(item);
+    {
+        db.Items.Remove(item);
+        db.SaveChanges();
     }
 }
